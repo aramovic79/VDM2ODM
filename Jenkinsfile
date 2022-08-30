@@ -7,7 +7,7 @@ pipeline {
         stage('Init') {
             steps {
                 script {
-                    echo 'Repository https://github.com/aramovic79/VDM2ODM.git checkout step.'
+                    echo "Repository ${env.GIT_URL} checkout step."
                 }
                 checkout scm
             }
