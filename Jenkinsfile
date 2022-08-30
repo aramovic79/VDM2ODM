@@ -6,6 +6,9 @@ pipeline {
     stages {
         stage('Init') {
             steps {
+                script {
+                    echo 'Repository https://github.com/aramovic79/VDM2ODM.git checkout step.'
+                }
                 checkout scm
             }
         }
@@ -20,7 +23,7 @@ pipeline {
             }
             steps {
                 script {
-                    echo 'Some meaningfull message.'
+                    echo 'Now we want to trigger another jos from here on.'
                     // if (fileExists('models')) {
                     //     // Trigger the pipeline job that runs on VDMtoCDSConverter and creates a PR on ODM.
                     //     build job: 'VDM2ODMConverter', parameters: [
