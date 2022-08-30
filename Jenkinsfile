@@ -1,4 +1,3 @@
-def IS_STARTED_BY_USER = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause) != null
 
 pipeline {
     agent any
@@ -15,7 +14,6 @@ pipeline {
                 // The stage is triggered if models directory was modified OR the pipeline was manually triggered.
                 anyOf {
                     changeset 'models/**/*.json'
-                    expression { return IS_STARTED_BY_USER }
                 }
             }
             steps {
