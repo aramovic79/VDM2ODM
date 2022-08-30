@@ -20,17 +20,18 @@ pipeline {
             }
             steps {
                 script {
-                    if (fileExists('models')) {
-                        // Trigger the pipeline job that runs on VDMtoCDSConverter and creates a PR on ODM.
-                        build job: 'VDM2ODMConverter', parameters: [
-                            string(name: 'UPSTREAM_GIT_REPOSITORY', value: env.GIT_URL),
-                            string(name: 'UPSTREAM_BUILD_URL', value: env.BUILD_URL),
-                            string(name: 'UPSTREAM_GIT_COMMIT', value: env.GIT_COMMIT)
-                        ]
-                    } else {
-                        echo 'No model changes. VDM2ODMConverter not triggered.'
-                        currentBuild.result = 'ABORTED'
-                    }
+                    echo 'Some meaningfull message.'
+                    // if (fileExists('models')) {
+                    //     // Trigger the pipeline job that runs on VDMtoCDSConverter and creates a PR on ODM.
+                    //     build job: 'VDM2ODMConverter', parameters: [
+                    //         string(name: 'UPSTREAM_GIT_REPOSITORY', value: env.GIT_URL),
+                    //         string(name: 'UPSTREAM_BUILD_URL', value: env.BUILD_URL),
+                    //         string(name: 'UPSTREAM_GIT_COMMIT', value: env.GIT_COMMIT)
+                    //     ]
+                    // } else {
+                    //     echo 'No model changes. VDM2ODMConverter not triggered.'
+                    //     currentBuild.result = 'ABORTED'
+                    // }
                 }
             }
         }
